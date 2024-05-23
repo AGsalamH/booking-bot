@@ -70,3 +70,18 @@ element = WebDriverWait(driver, 10).until(
 💡 **By default, WebDriverWait calls the ExpectedCondition every 500 milliseconds until it returns success**
 
 ---
+### Find elements
+- We have 2 methods
+    - Both methods take 2 arguments for example: 
+            - `driver.find_element(By.CLASS_NAME, 'class_name')`
+            - `driver.find_elements(By.NAME, 'element_name')`
+            - `driver.find_element(By.ID, 'element_id')`
+    ---
+    1. **`driver.find_element(By, value)`**
+        - This finds the first element that matches the look up criteria.
+        - Return WebElement instance.
+
+    2. **`driver.find_elements(By, value)`**
+        - This finds all elements that matches the look up criteria.
+        - Return List of WebElement instances.
+---
