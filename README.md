@@ -44,3 +44,29 @@ Getting started with Testing and Automating using Selenium.
         
 
 ---
+
+### Waits - Implicit & Explicit
+
+### Implicit
+- `driver.implicitly_wait(time_in_seconds)`
+- This tells driver that if it can't find the element, wait that specified `time_in_seconds` before raising an error.
+- Implicit wait is set for the life of the WebDriver object
+
+### Explicit
+- Tells the driver to wait for a certain condition before proceeding further in the code
+```python 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
+# This will wait maximum 10 seconds.
+element = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.ID, "myDynamicElement"))
+)
+
+```
+💡 **By default, WebDriverWait calls the ExpectedCondition every 500 milliseconds until it returns success**
+
+---
