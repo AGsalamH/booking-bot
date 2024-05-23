@@ -1,5 +1,5 @@
 
-# Selenium
+# [Selenium](https://selenium-python.readthedocs.io/api.html)
 Getting started with Testing and Automating using Selenium.
 
 - Automates browsers *(As if a real user is operating the browser)*
