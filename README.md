@@ -94,6 +94,22 @@ element = WebDriverWait(driver, 10).until(
         - `find_element(By.TAG_NAME, "tag name")`
         - `find_element(By.CLASS_NAME, "class name")`
         - `find_element(By.CSS_SELECTOR, "css selector")`
+
+    ---
+    - **💡 Locators Tip**
+        - It's recommended to separate the locator strings from the place where they are getting used.
+        - Locators of the same page belong to the same class.
+    ```python
+        #The locators.py will look like this:
+        
+        from selenium.webdriver.common.by import By
+
+        class MainPageLocators(object):
+            """A class for main page locators. All main page locators should come here"""
+
+            GO_BUTTON = (By.ID, 'submit')
+
+    ```
 ---
 
 ### WebElement 
