@@ -95,3 +95,37 @@ element = WebDriverWait(driver, 10).until(
         - `find_element(By.CLASS_NAME, "class name")`
         - `find_element(By.CSS_SELECTOR, "css selector")`
 ---
+
+### WebElement 
+```python
+    from selenium.webdriver.common.keys import Keys
+
+
+    element: WebElement = driver.find_element(By.ID, 'my_element')
+
+    # Actions we can perform on Web elements.
+    
+    element.clear()  # Empty input field.
+    
+    element.text  # returns content of an element.
+
+    element.get_attribute('attr name')  # returns value of an HTML attribute.
+
+    element.sendKeys('test')  # write text on a field.
+
+    element.sendKeys(Keys.RETURN)  # can take specific keyboard keys from `Keys` class.
+
+    element.sendKeys('test' + Keys.RETURN)  # we can concatenate keys to a string.
+
+    element.click()  # click on it if it's clickable.
+
+    element.submit()  # if it's a form element.
+
+    element.parent  # Return reference to the driver instance this element was found from.
+    
+    element.tag_name  # Return tag name of an element 
+    
+    element.id  # Return internal ID used by selenium.
+
+```
+---
