@@ -1,10 +1,11 @@
 '''
 Booking.com Webdriver that interactes with the webpages.
 '''
-from types import TracebackType
-from typing import Type
+
 from selenium import webdriver
+
 from booking import constants as const
+from booking.locators import HomepageLocators
 
 
 class Booking(webdriver.Chrome):
@@ -25,3 +26,30 @@ class Booking(webdriver.Chrome):
     def land_homepage(self):
         '''Load booking.com page in the current tab'''
         self.get(const.BASE_URL)
+
+    def currency_picker(self):
+        '''Find and return currency picker button.'''
+        return self.find_element(*HomepageLocators.CURRENCY_PICKER)
+
+    def currency_btn(self, currency: str):
+        '''
+        Find and return specific currency button. \n
+        Returns first currency in the list if it can't find the specified currency.
+        '''
+        all_currencies = self.find_elements(*HomepageLocators.CURRENCY_BTN)
+
+        for currency_element in all_currencies:
+            if currency_element.text.upper() == currency.upper():
+                return currency_element
+
+        return all_currencies[0]
+
+    def set_currency(self, currency='EGP'):
+        '''Set Currency by: \n
+            1. Click on currency picker. \n
+            2. Click on the specified currency button. \n
+
+            **default is EGP**.
+        '''
+        self.currency_picker().click()
+        self.currency_btn(currency).click()
