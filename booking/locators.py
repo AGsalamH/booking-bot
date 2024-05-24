@@ -1,0 +1,11 @@
+'''
+All WebElement instances locators should come here.
+'''
+from selenium.webdriver.common.by import By
+
+
+class HomepageLocators:
+    '''Booking.com Homepage element locators'''
+
+    CURRENCY_PICKER = (By.CSS_SELECTOR, 'button[data-testid="header-currency-picker-trigger"]')
+    CURRENCY_BTN = (By.CLASS_NAME, 'ea1163d21f')
