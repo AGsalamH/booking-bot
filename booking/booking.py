@@ -15,6 +15,7 @@ class Booking(webdriver.Chrome):
         self.teardown = teardown
         super().__init__(service=webdriver.ChromeService(self.driver_path))
         self.implicitly_wait(10)
+        self.maximize_window()
 
     def __exit__(self, exc_type, exc, traceback):
         '''Close the browser and shutdown chromedriver.'''
