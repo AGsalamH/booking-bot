@@ -53,3 +53,14 @@ class Booking(webdriver.Chrome):
         '''
         self.currency_picker().click()
         self.currency_btn(currency).click()
+
+    def _modal_close_btn(self):
+        '''Get close Modal button.'''
+        return self.find_element(*HomepageLocators.CLOSE_MODAL_BTN)
+
+    def close_modal(self):
+        '''Close the modal that appears once the website loads.'''
+        try:
+            self._modal_close_btn().click()
+        except:
+            pass

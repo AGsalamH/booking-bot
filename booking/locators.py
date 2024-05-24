@@ -9,3 +9,4 @@ class HomepageLocators:
 
     CURRENCY_PICKER = (By.CSS_SELECTOR, 'button[data-testid="header-currency-picker-trigger"]')
     CURRENCY_BTN = (By.CLASS_NAME, 'ea1163d21f')
+    CLOSE_MODAL_BTN = (By.CSS_SELECTOR, 'button[aria-label="Dismiss sign-in info."]')
