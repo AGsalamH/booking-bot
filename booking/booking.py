@@ -3,6 +3,8 @@ Booking.com Webdriver that interactes with the webpages.
 '''
 
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from booking import constants as const
 from booking.locators import HomepageLocators
@@ -61,6 +63,19 @@ class Booking(webdriver.Chrome):
     def close_modal(self):
         '''Close the modal that appears once the website loads.'''
         try:
+            self._modal_close_btn().click()
+        except:
+            pass
+
+    def explicitly_close_modal(self):
+        '''
+        Make first try to close the modal explicitly wait for it to appear. \n
+        To avoid waiting the whole implicit wait time.
+        '''
+        try:
+            WebDriverWait(self, 4).until(
+                EC.presence_of_element_located(HomepageLocators.CLOSE_MODAL_BTN)
+            )
             self._modal_close_btn().click()
         except:
             pass
