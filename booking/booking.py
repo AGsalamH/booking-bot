@@ -1,8 +1,9 @@
 '''
 Booking.com Webdriver that interactes with the webpages.
 '''
-
+import time
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -79,3 +80,17 @@ class Booking(webdriver.Chrome):
             self._modal_close_btn().click()
         except:
             pass
+
+    def location_input(self):
+        '''Find and return destination input.'''
+        return self.find_element(*HomepageLocators.LOCATION_INPUT)
+
+    def _first_result_option(self):
+        '''Find and return first search result option.'''
+        return self.find_element(*HomepageLocators.FIRST_RESULT_OPTION)
+
+    def where_you_going(self, location: str):
+        '''Set destination location and select first result that appears.'''
+        self.location_input().send_keys(location)
+        time.sleep(1)  # Cuz it selects the first result before my result search appears
+        self._first_result_option().click()
