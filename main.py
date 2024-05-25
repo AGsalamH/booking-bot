@@ -15,7 +15,10 @@ def main():
         booking.set_currency('EGP')
 
         # Double check closing the modal, it may appears after choosing the currency.
-        booking.close_modal()
+        booking.explicitly_close_modal()
+
+        # Enter destination
+        booking.where_you_going('Dahab')
 
 
 if __name__ == '__main__':
