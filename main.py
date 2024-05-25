@@ -10,7 +10,7 @@ def main():
         booking.land_homepage()
 
         # close the window that appears when website first loads.
-        booking.close_modal()
+        booking.explicitly_close_modal()
 
         booking.set_currency('EGP')
 
