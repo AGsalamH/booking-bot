@@ -2,6 +2,7 @@
 Booking.com Webdriver that interactes with the webpages.
 '''
 import time
+from datetime import date, timedelta
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -94,3 +95,23 @@ class Booking(webdriver.Chrome):
         self.location_input().send_keys(location)
         time.sleep(1)  # Cuz it selects the first result before my result search appears
         self._first_result_option().click()
+
+    def _date_is_valid(self, *dates: date):
+        '''Check that dates NOT in the past.'''
+        today = date.today()
+        return all((_date >= today for _date in dates))
+
+    def date_picker(self, _date: date):
+        '''Find and return specific date element.'''
+        is_valid = self._date_is_valid(_date)
+        locator = HomepageLocators.get_date_picker(str(_date))
+        if not is_valid:  # set date to today if date is not VALID.
+             locator = HomepageLocators.get_date_picker(str(date.today()))
+
+        return self.find_element(*locator)
+
+    def when_you_going(self, start: date, end: date):
+        '''Set start & end reservation dates.'''
+
+        self.date_picker(start).click()
+        self.date_picker(end).click()

@@ -12,3 +12,8 @@ class HomepageLocators:
     CLOSE_MODAL_BTN = (By.CSS_SELECTOR, 'button[aria-label="Dismiss sign-in info."]')
     LOCATION_INPUT = (By.ID, ':re:')
     FIRST_RESULT_OPTION = (By.ID, 'autocomplete-result-0')
+
+    @classmethod
+    def get_date_picker(cls, str_date: str):  # str_date = '2024-05-26'
+        '''dynamic locator to find date element by date value'''
+        return (By.CSS_SELECTOR, f'span[data-date="{str_date}"]')
