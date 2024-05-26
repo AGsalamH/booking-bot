@@ -1,6 +1,7 @@
 '''
 Bot entrypoint.
 '''
+from datetime import date
 from booking import Booking
 
 
@@ -19,6 +20,9 @@ def main():
 
         # Enter destination
         booking.where_you_going('Dahab')
+
+        # When you going ?
+        booking.when_you_going(date.today(), date(2024, 5, 30))
 
 
 if __name__ == '__main__':
