@@ -12,6 +12,10 @@ class HomepageLocators:
     CLOSE_MODAL_BTN = (By.CSS_SELECTOR, 'button[aria-label="Dismiss sign-in info."]')
     LOCATION_INPUT = (By.ID, ':re:')
     FIRST_RESULT_OPTION = (By.ID, 'autocomplete-result-0')
+    OCCUPANCY_CONFIG_BTN = (By.CSS_SELECTOR, 'button[data-testid="occupancy-config"]')
+    INCREMENT_ADULTS_BTN = (By.XPATH, '//*[@id=":rf:"]/div/div[1]/div[2]/button[2]')
+    INCREMENT_ROOMS_BTN = (By.XPATH, '//*[@id=":rf:"]/div/div[3]/div[2]/button[2]')
+
 
     @classmethod
     def get_date_picker(cls, str_date: str):  # str_date = '2024-05-26'
