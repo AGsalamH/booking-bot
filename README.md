@@ -1,5 +1,8 @@
+# Automate Booking.com Reservation using Selenium.
 
-# [Selenium](https://selenium-python.readthedocs.io/api.html)
+
+### Below are some notes related to Selenium library to comeback to when needed.
+### [Selenium](https://selenium-python.readthedocs.io/api.html)
 Getting started with Testing and Automating using Selenium.
 
 - Automates browsers *(As if a real user is operating the browser)*
