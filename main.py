@@ -1,7 +1,7 @@
 '''
 Bot entrypoint.
 '''
-from datetime import date
+from datetime import date, timedelta
 from booking import Booking
 
 
@@ -22,7 +22,7 @@ def main():
         bot.where_you_going('Dahab')
 
         # When you going ?
-        bot.when_you_going(date.today(), date(2024, 5, 30))
+        bot.when_you_going(date.today(), date.today() + timedelta(days=3))
 
 
 if __name__ == '__main__':

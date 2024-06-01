@@ -110,8 +110,8 @@ class Booking(webdriver.Chrome):
 
         return self.find_element(*locator)
 
-    def when_you_going(self, start: date, end: date):
-        '''Set start & end reservation dates.'''
+    def when_you_going(self, check_in: date, check_out: date):
+        '''Set check_in & check_out reservation dates.'''
 
-        self.date_picker(start).click()
-        self.date_picker(end).click()
+        self.date_picker(check_in).click()
+        self.date_picker(check_out).click()
