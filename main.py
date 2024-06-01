@@ -23,6 +23,9 @@ def main():
 
         # When you going ?
         bot.when_you_going(date.today(), date.today() + timedelta(days=3))
+        
+        # Set Occupancy configs
+        bot.occupancy_config(adults=2, rooms=2)
 
 
 if __name__ == '__main__':

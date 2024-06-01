@@ -115,3 +115,38 @@ class Booking(webdriver.Chrome):
 
         self.date_picker(check_in).click()
         self.date_picker(check_out).click()
+
+    def _occupancy_config_btn(self):
+        '''Find and return Occupancy config button.'''
+        return self.find_element(*HomepageLocators.OCCUPANCY_CONFIG_BTN)
+
+    def _increment_adults_btn(self):
+        '''Find and return Increment adults button.'''
+        return self.find_element(*HomepageLocators.INCREMENT_ADULTS_BTN)
+
+    def _increment_rooms_btn(self):
+        '''Find and return Increment rooms button.'''
+        return self.find_element(*HomepageLocators.INCREMENT_ROOMS_BTN)
+
+    def adults_number(self, adults: int=1):
+        '''Set number of adults. '''
+        if adults > 1:
+            for _ in range(2, adults):
+                self._increment_adults_btn().click()
+        else:
+            pass
+
+    def rooms_number(self, rooms: int=1):
+        '''Set number of rooms. '''
+        if rooms > 1:
+            for _ in range(2, rooms):
+                self._increment_rooms_btn().click()
+        else:
+            pass
+
+    def occupancy_config(self, adults: int=1, rooms: int=1):
+        '''Shorthand to set all occupancy (rooms, adults) in one function '''
+        self._occupancy_config_btn().click()
+        
+        self.adults_number(adults)
+        self.rooms_number(rooms)
